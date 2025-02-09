@@ -1,10 +1,10 @@
-import React from "react";
+/* eslint-disable react/display-name */
+"use client";
+import React, { memo } from "react";
 
-const ExpensiveTask = () => {
-  const ComplexCalcu = () => {
-    console.log("helo");
-  };
-  return <div>ExpensiveTask</div>;
-};
+const ExpensiveTask = memo(({ count }) => {
+  console.log("inside Expensive task");
+  return <div>ExpensiveTask and count is {count} </div>;
+});
 
 export default ExpensiveTask;

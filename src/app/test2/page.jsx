@@ -1,11 +1,13 @@
 "use client";
 import ExpensiveTask from "@/components/ExpensiveTask";
+import UseCallback from "@/components/UseCallback";
 import useCounter from "@/components/useCounter";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 const Page = () => {
   const [count, Increment, Decrement] = useCounter();
   const [complex, setComplex] = useState(4);
+  const [names, setNames] = useState("Sarvesh");
 
   const ComplexCalu = (num) => {
     console.log("inside Comple");
@@ -16,6 +18,10 @@ const Page = () => {
   const DobuleData = useMemo(() => {
     ComplexCalu(complex);
   }, [complex]);
+
+  const callFun = useCallback(() => {
+    console.log("call new call fun");
+  }, [names]);
 
   useEffect(() => {
     console.log("use effect render");
@@ -32,7 +38,8 @@ const Page = () => {
         </button>
       </div>
       <span>Dboule DATA {DobuleData} </span>
-      <ExpensiveTask />
+      <ExpensiveTask count={names} />
+      <UseCallback names={names} callFun={callFun} />
     </div>
   );
 };
