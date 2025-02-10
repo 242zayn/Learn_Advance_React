@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import ExpensiveTask from "@/components/ExpensiveTask";
 import UseCallback from "@/components/UseCallback";
