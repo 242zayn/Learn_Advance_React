@@ -1,25 +1,22 @@
 "use client";
-import Form from "@/components/Form";
-import UseLayoutEffect from "@/components/UseLayoutEffect";
-import ContextCounter from "@/context/CounterContext";
-import React, { useContext, useEffect, useState } from "react";
+
+import { toggleTheme } from "@/features/themeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Page = () => {
-  // const [count, setCount] = useState(0);
-
-  // const increment = () => {
-  //   setCount(count + 1);
-  // };
-  // const decrement = () => {
-  //   setCount(count - 1);
-  // };
-
-  const { count } = useContext(ContextCounter);
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
+  console.log(theme);
 
   return (
-    <div className=" h-screen flex flex-col justify-center items-center">
-      <span>{count} </span>
-      <UseLayoutEffect />
+    <div
+      className={` h-screen flex flex-col justify-center items-center ${
+        theme == "dark" ? "bg-white" : "bg-black"
+      } ${theme == "dark" ? "text-black" : "text-white"}   `}
+    >
+      <button className="border" onClick={() => dispatch(toggleTheme())}>
+        Mode Change
+      </button>
     </div>
   );
 };
