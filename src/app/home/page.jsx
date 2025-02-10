@@ -1,5 +1,6 @@
 "use client";
 import Form from "@/components/Form";
+import UseLayoutEffect from "@/components/UseLayoutEffect";
 import ContextCounter from "@/context/CounterContext";
 import React, { useContext, useEffect, useState } from "react";
 
@@ -18,7 +19,7 @@ const Page = () => {
   return (
     <div className=" h-screen flex flex-col justify-center items-center">
       <span>{count} </span>
-      <Form />
+      <UseLayoutEffect />
     </div>
   );
 };
