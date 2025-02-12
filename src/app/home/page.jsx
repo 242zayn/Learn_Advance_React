@@ -1,5 +1,6 @@
 "use client";
 
+import UseFetchApi from "@/components/useFetchApi";
 import { toggleTheme } from "@/features/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,6 +8,8 @@ const Page = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.theme);
   console.log(theme);
+  const {data,loading,error,fethApi}=UseFetchApi('https://fakestoreapi.com/products')
+  console.log( "dfdf",data)
 
   return (
     <div
